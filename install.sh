@@ -22,15 +22,15 @@ kill_process_using_port 443
 #rm -rf trojan*
 
 # download trojan-go
-#wget https://github.com/p4gefau1t/trojan-go/releases/download/v0.10.6/trojan-go-linux-amd64.zip
-#yum install unzip -y
-#unzip trojan-go-linux-amd64.zip
+wget https://github.com/p4gefau1t/trojan-go/releases/download/v0.10.6/trojan-go-linux-amd64.zip
+yum install unzip -y
+unzip trojan-go-linux-amd64.zip
 
 # request cert from domain
-#curl https://get.acme.sh | sh -s email=xxmd3720@gmail.com
-#yum install socat -y 
-#sudo ls -s /root/.acme.sh/acme.sh /usr/local/bin/
-#acme.sh --issue --standalone -d ${domain_name}
+curl https://get.acme.sh | sh -s email=xxmd3720@gmail.com
+yum install socat -y 
+sudo ls -s /root/.acme.sh/acme.sh /usr/local/bin/
+acme.sh --issue --standalone -d ${domain_name}
 
 # make link and copy server config file
 ln -s -f /root/trojan-go /usr/bin
@@ -47,8 +47,8 @@ sed -i "s/\"sni\": \".*\"/\"sni\": \"${domain_name}\"/" $server_config_file
 sed -i "s/\"enabled\": true/\"enabled\": false/" $server_config_file
 
 # install and start nginx
-#yum install nginx -y
-#systemctl start nginx
+yum install nginx -y
+systemctl start nginx
 
 # trojan-go service
 cp -f /root/example/trojan-go.service /etc/systemd/system/
