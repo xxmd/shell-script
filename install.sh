@@ -19,7 +19,8 @@ kill_process_using_port() {
         else
             echo "No process found using port $port"
         fi
-  
+    done
+}
 
 # 查找并杀死占用 80 端口的程序
 kill_process_using_port 80
