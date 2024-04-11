@@ -39,8 +39,8 @@ unzip trojan-go-linux-amd64.zip -d ${target_dir_path}
 # request cert from domain
 curl https://get.acme.sh | sh -s email=xxmd3720@gmail.com
 yum install socat -y 
-ls -s /root/.acme.sh/acme.sh /usr/local/bin/acme.sh
-acme.sh --issue --standalone -d ${domain_name}
+# 建立 acme.sh 软连接老是失败
+/root/.acme.sh/acme.sh --issue --standalone -d ${domain_name}
 
 # make link and copy server config file
 ln -s -f ${target_dir_path}/trojan-go /usr/bin
