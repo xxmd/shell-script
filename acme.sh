@@ -25,7 +25,7 @@ done
 echo "输入的域名是：$domain"
 
 curl https://get.acme.sh | sh -s email=my@example.com
-export Ali_Key="LTAI5tFPT65zKFjGMgUkLuUd"
-export Ali_Secret="tmpb6r7nnbEE8VgfKwmRHzlKZKL1Lb"
+export Ali_Key=""
+export Ali_Secret=""
 ln -s /root/.acme.sh/acme.sh /usr/bin/acme.sh
 acme.sh --issue --dns dns_ali -d ${domain} --force
